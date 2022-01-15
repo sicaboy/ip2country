@@ -1,21 +1,21 @@
-name: Publish Docker
+name: CI Check
 on:
   push:
-    branches: [ '*' ]
+    branches: ["*"]
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout
-      uses: actions/checkout@v2
-    
-    - name: check
-      run: make check
+      - name: Checkout
+        uses: actions/checkout@v2
 
-    - name: benchmark-iai
-      run: |
-        sudo apt-get update -y && sudo apt-get install -y valgrind
-        cd ip2country-bench && make bench-inside-docker
-    
-    - name: benchmark
-      run: cargo bench
+      - name: check
+        run: make check
+
+      - name: benchmark-iai
+        run: |
+          sudo apt-get update -y && sudo apt-get install -y valgrind
+          cd ip2country-bench && make bench-inside-docker
+
+      - name: benchmark
+        run: cargo bench

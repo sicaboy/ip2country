@@ -1,0 +1,17 @@
+version: "3"
+
+services:
+
+ ip2location-app:
+    # build: .
+    image: sicaboy/ip2country:latest
+    ports:
+      - '8647:80'
+    environment:
+      PORT: '80'
+    networks:
+      - caddy
+
+networks:
+  caddy:
+    external: true

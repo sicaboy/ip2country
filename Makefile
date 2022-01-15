@@ -8,10 +8,10 @@ download:
 	curl "${BASE_URL}/${IP6_FILE}" > ip2country-service/${IP6_FILE}
 
 docker-local:
-	docker build -t extrawurst/ip2country:latest -f Dockerfile.local .
+	docker build -t sicaboy/ip2country:latest -f Dockerfile.local .
 
 docker-run:
-	docker run -it -p 5000:5000 extrawurst/ip2country:latest
+	docker run -it -p 5000:5000 sicaboy/ip2country:latest
 
 check:
 	cargo clean -p ip2country-service -p ip2country && cargo clippy
