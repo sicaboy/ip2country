@@ -4,6 +4,8 @@ services:
 
  ip2country-app:
     # build: .
+    #
+    restart: unless-stopped
     image: sicaboy/ip2country:latest
     ports:
       - '8647:80'
